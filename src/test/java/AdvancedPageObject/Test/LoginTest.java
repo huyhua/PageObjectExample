@@ -1,17 +1,11 @@
 package AdvancedPageObject.Test;
 
-import AdvancedPageObject.PageObject.HomePage;
-import AdvancedPageObject.PageObject.LoginPage;
-import org.junit.jupiter.api.AfterEach;
+import AdvancedPageObject.PageObject.Object.HomePage;
+import AdvancedPageObject.PageObject.Object.LoginPage;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 
