@@ -1,16 +1,15 @@
 package AdvancedPageObject.PageObject.Object;
 
 import AdvancedPageObject.PageObject.Map.LoginPageMap;
-import org.openqa.selenium.WebDriver;
+import AdvancedPageObject.PageObject.Validator.LoginValidator;
 
 public class LoginPage extends BasePage{
     private String url = "https://www.anibis.ch/de/login.aspx";
     private LoginPageMap map;
 
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-        map = new LoginPageMap(driver);
+    public LoginPage() {
+        map = new LoginPageMap();
     }
 
 
@@ -31,11 +30,7 @@ public class LoginPage extends BasePage{
         waitForPage();
     }
 
-    public Boolean usernameIsFocused() {
-        return map.username.isSelected();
-    }
-
-    public Boolean isInLoginPage() {
-        return driver.getCurrentUrl().contains(url);
+    public LoginValidator validator() {
+        return new LoginValidator();
     }
 }

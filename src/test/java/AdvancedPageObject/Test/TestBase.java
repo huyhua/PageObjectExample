@@ -1,9 +1,11 @@
 package AdvancedPageObject.Test;
 
+import AdvancedPageObject.PageObject.WebDriver.Driver;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.Random;
 
 public abstract class TestBase {
     protected WebDriver driver;
@@ -13,12 +15,20 @@ public abstract class TestBase {
     @BeforeEach
     void setup() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
-        driver = new ChromeDriver();
+        Driver.startDriver();
+        driver = Driver.getDriver();
     }
 
     @AfterEach
     void tearDown() {
-        driver.quit();
+        Driver.stopDriver();
         driver = null;
+    }
+
+    public String randomString(int length) {
+        return new Random().ints(48,123)
+                .filter(i -> (i < 58) || (i > 64 && i < 91) || (i > 96))
+                .limit(length)
+                .collect(StringBuilder::new, (sb, i) -> sb.append((char) i), StringBuilder::append).toString();
     }
 }

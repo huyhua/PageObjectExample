@@ -3,18 +3,14 @@ package AdvancedPageObject.PageObject.Validator;
 import AdvancedPageObject.PageObject.Map.ResultsPageMap;
 import AdvancedPageObject.PageObject.Object.AdItem;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.WebDriver;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ResultValidator {
-    private WebDriver driver;
-    private ResultsPageMap map;
-
-    public ResultValidator(WebDriver driver) {
-        this.driver = driver;
+public class ResultValidator extends BaseValidator<ResultsPageMap> {
+    public ResultValidator() {
+       super(ResultsPageMap.class);
     }
 
     public ResultValidator resultCount(int count) {

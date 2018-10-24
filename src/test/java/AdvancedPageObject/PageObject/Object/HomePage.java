@@ -1,26 +1,30 @@
 package AdvancedPageObject.PageObject.Object;
 
 import AdvancedPageObject.PageObject.Map.HomePageMap;
-import org.openqa.selenium.WebDriver;
+import AdvancedPageObject.PageObject.Validator.BaseValidator;
 
 public class HomePage extends BasePage{
     private String url = "https://www.anibis.ch/de/default.aspx";
     private HomePageMap map;
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-        this.map = new HomePageMap(driver);
+    public HomePage() {
+        this.map = new HomePageMap();
+    }
+
+    @Override
+    <V extends BaseValidator> V validator() {
+        return null;
     }
 
     public ResultsPage allProperties() {
         map.allPropertyLink.click();
         waitForPage();
-        return new ResultsPage(driver);
+        return new ResultsPage();
     }
 
     public LoginPage login() {
         map.loginBtn.click();
         waitForPage();
-        return new LoginPage(driver);
+        return new LoginPage();
     }
 }

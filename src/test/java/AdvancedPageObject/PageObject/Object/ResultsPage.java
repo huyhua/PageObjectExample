@@ -17,8 +17,7 @@ public class ResultsPage extends BasePage {
     private FilterResultBar filter;
     private ResultsPageMap map;
 
-    public ResultsPage(WebDriver driver) {
-        super(driver);
+    public ResultsPage() {
         filter = new FilterResultBar(driver);
     }
 
@@ -57,8 +56,8 @@ public class ResultsPage extends BasePage {
                 .collect(Collectors.toList());
     }
 
-    public ResultValidator validate() {
-        return new ResultValidator(driver);
+    public ResultValidator validator() {
+        return new ResultValidator();
     }
 
     @Override
@@ -76,7 +75,7 @@ public class ResultsPage extends BasePage {
 
         public FilterResultBar(WebDriver driver) {
             this.driver = driver;
-            map = new FilterSectionMap(driver);
+            map = new FilterSectionMap();
         }
 
         public void priceFrom(int price) {

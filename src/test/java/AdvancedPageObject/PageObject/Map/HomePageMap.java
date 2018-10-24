@@ -1,11 +1,10 @@
 package AdvancedPageObject.PageObject.Map;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePageMap {
+public class HomePageMap extends BaseMap {
 
     @FindBy(linkText = "Immobilien")
     public WebElement allPropertyLink;
@@ -13,7 +12,7 @@ public class HomePageMap {
     @FindBy(id = "ctl00_Header1_ctlHeaderMetaBar_ucMainLinks_hypMyAnibis")
     public WebElement loginBtn;
 
-    public HomePageMap(WebDriver driver) {
+    public HomePageMap() {
         PageFactory.initElements(driver, this);
     }
 }

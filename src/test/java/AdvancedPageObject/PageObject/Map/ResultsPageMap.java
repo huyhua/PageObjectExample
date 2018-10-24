@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ResultsPageMap {
+public class ResultsPageMap extends BaseMap {
     @FindBy(className = "listing-info")
     private List<WebElement> items;
 

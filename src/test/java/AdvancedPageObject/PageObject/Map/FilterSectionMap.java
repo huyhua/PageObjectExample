@@ -1,11 +1,10 @@
 package AdvancedPageObject.PageObject.Map;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class FilterSectionMap {
+public class FilterSectionMap extends BaseMap{
     @FindBy(id = "ctl00_phlContent_Filter_ctlLocation_ctlLocationAutocomplete_divLocation")
     public WebElement locationTextField;
     @FindBy(id = "ctl00_phlContent_Filter_ctlPriceRange_txtFrom")
@@ -19,7 +18,7 @@ public class FilterSectionMap {
     @FindBy(css = ".filter-section #ctl00_phlContent_Filter_btnSearch")
     public WebElement filterBtn;
 
-    public FilterSectionMap(WebDriver driver) {
+    public FilterSectionMap() {
         PageFactory.initElements(driver, this);
     }
 }
