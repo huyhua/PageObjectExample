@@ -8,7 +8,7 @@ public class BaseValidator<M extends BaseMap> {
     protected M map;
     protected WebDriver driver;
 
-    public BaseValidator(Class<M> mClass) {
+    BaseValidator(Class<M> mClass) {
         try {
             map = mClass.newInstance();
         } catch (Exception ignored) {

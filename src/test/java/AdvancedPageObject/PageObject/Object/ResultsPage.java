@@ -66,6 +66,10 @@ public class ResultsPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("page-segment-breadcrumb")));
     }
 
+    @Override
+    public ResultsPage navigate() {
+        throw new IllegalAccessError("Not implemented!");
+    }
 
 
     private class FilterResultBar {
@@ -73,18 +77,18 @@ public class ResultsPage extends BasePage {
         private WebDriver driver;
 
 
-        public FilterResultBar(WebDriver driver) {
+        FilterResultBar(WebDriver driver) {
             this.driver = driver;
             map = new FilterSectionMap();
         }
 
-        public void priceFrom(int price) {
+        void priceFrom(int price) {
             map.priceFrom = driver.findElement(By.id("ctl00_phlContent_Filter_ctlPriceRange_txtFrom"));
             map.priceFrom.clear();
             map.priceFrom.sendKeys(Integer.toString(price));
         }
 
-        public void setLocation(String location) {
+        void setLocation(String location) {
             scrollIntoView(map.locationTextField);
 
             WebElement targetSuggestion = null;
@@ -104,17 +108,17 @@ public class ResultsPage extends BasePage {
             targetSuggestion.click();
         }
 
-        public void priceTo(int price) {
+        void priceTo(int price) {
             map.priceTo.clear();
             map.priceTo.sendKeys(Integer.toString(price));
         }
 
-        public void setSortByDate(int index) {
+        void setSortByDate(int index) {
             Select sortByDate = new Select(map.sortByDate);
             sortByDate.selectByIndex(index);
         }
 
-        public void setRadius(int index) {
+        void setRadius(int index) {
             Select radius = new Select(map.radius);
             radius.selectByIndex(index);
         }

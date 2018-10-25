@@ -28,4 +28,6 @@ public abstract class BasePage {
     }
 
     abstract <V extends BaseValidator> V validator();
+
+    public abstract <P extends BasePage> P navigate();
 }

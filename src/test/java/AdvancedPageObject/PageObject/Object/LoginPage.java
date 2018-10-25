@@ -4,12 +4,18 @@ import AdvancedPageObject.PageObject.Map.LoginPageMap;
 import AdvancedPageObject.PageObject.Validator.LoginValidator;
 
 public class LoginPage extends BasePage{
-    private String url = "https://www.anibis.ch/de/login.aspx";
     private LoginPageMap map;
 
 
     public LoginPage() {
         map = new LoginPageMap();
+    }
+
+    @Override
+    public LoginPage navigate() {
+        String url = "https://www.anibis.ch/de/login.aspx";
+        driver.get(url);
+        return this;
     }
 
 

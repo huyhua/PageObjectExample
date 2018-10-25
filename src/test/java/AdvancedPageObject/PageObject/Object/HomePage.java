@@ -4,7 +4,6 @@ import AdvancedPageObject.PageObject.Map.HomePageMap;
 import AdvancedPageObject.PageObject.Validator.BaseValidator;
 
 public class HomePage extends BasePage{
-    private String url = "https://www.anibis.ch/de/default.aspx";
     private HomePageMap map;
 
     public HomePage() {
@@ -14,6 +13,12 @@ public class HomePage extends BasePage{
     @Override
     <V extends BaseValidator> V validator() {
         return null;
+    }
+
+    public HomePage navigate() {
+        String url = "https://www.anibis.ch/de/default.aspx";
+        driver.get(url);
+        return this;
     }
 
     public ResultsPage allProperties() {

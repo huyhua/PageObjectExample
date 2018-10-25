@@ -3,7 +3,6 @@ package AdvancedPageObject.PageObject.Validator;
 import AdvancedPageObject.PageObject.Map.LoginPageMap;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class LoginValidator extends BaseValidator<LoginPageMap> {
 
@@ -17,11 +16,8 @@ public class LoginValidator extends BaseValidator<LoginPageMap> {
     }
 
     public LoginValidator errorShown() {
-        WebElement highlightField = driver
-                .findElement(By.xpath(".//input[@name='ctl00$phlContent$txtUsername' and @aria-required='true']"));
-
-        Assertions.assertFalse(driver.findElements(By.className("error-msg")).isEmpty());
-        Assertions.assertTrue(highlightField.isDisplayed());
+        Assertions.assertFalse(map.errorMsg.getText().isEmpty());
+        Assertions.assertTrue(map.usernameHighlight.isDisplayed());
         return this;
     }
 

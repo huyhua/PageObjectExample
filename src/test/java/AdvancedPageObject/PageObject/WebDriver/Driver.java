@@ -21,6 +21,7 @@ public class Driver {
     }
 
     public static void startDriver() {
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         Driver.driver = new ChromeDriver();
         Driver.driverWait = new WebDriverWait(driver, 10);
     }

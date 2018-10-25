@@ -10,8 +10,7 @@ import java.util.Comparator;
 class SearchTest extends TestBase {
     @Test
     void testCustomSearch() {
-        driver.get(baseUrl);
-        new HomePage().allProperties()
+        new HomePage().navigate().allProperties()
                 .location("Zurich")
                 .filterRadius(4)
                 .sortByDate(2)
