@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
@@ -69,6 +71,21 @@ public class ResultsPage extends BasePage {
     @Override
     public ResultsPage navigate() {
         throw new IllegalAccessError("Not implemented!");
+    }
+
+    public ResultsPage navigate(String category, Map<String, String> parameters) {
+        String url = String.format("https://www.anibis.ch/de/%s/advertlist.aspx", category);
+
+        if (parameters != null && !parameters.isEmpty()) {
+            String parameterString = parameters
+                    .entrySet()
+                    .stream()
+                    .map(Objects::toString)
+                    .collect(Collectors.joining("&"));
+            url += "?" + parameterString;
+        }
+        driver.get(url);
+        return this;
     }
 
 
